@@ -1,9 +1,10 @@
-#--------------------------------------------------------------------------------------------
-#  Copyright (c) Red Hat, Inc. All rights reserved.
-#  Licensed under the MIT License. See LICENSE in the project root for license information.
-#--------------------------------------------------------------------------------------------
-
-# This program prints Hello, world!
-
-str = 'world'
-print('Hello, ' + str + '!')
+import pymongo
+client = pymongo.MongoClient("mongodb://localhost:27017/")
+db = client["myDatabase"]
+peopletest = db["peopletest"]
+for x in peopletest.find():
+    print(x)
+db = client["customersdb"]
+customers = db["customers"]
+for x in customers.find():
+    print(x)
